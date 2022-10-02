@@ -1,0 +1,87 @@
+Exercise 1:
+
+[org 0x0100]
+mov ax,[num]
+mov cx,[num]
+mov bx,0
+l1:
+add bx,ax
+sub cx,1
+jnz l1
+mov [square],bx
+mov ax,0x4c00
+int 21h
+
+num: db 5
+square: db 0
+
+Exercise 2:
+
+[org 0x0100]
+
+mov bx,num1
+mov dx,5
+l1:
+mov ax,[bx]
+add bx,2
+mov cx,[bx]
+cmp ax,cx
+je update
+sub dx,1
+jnz l1
+
+update: mov bx,1
+sub dx,1
+jnz l1
+
+mov ax,0x4C00
+int 21h
+num1: dw 1,1,2,1,1,-1
+
+
+Exercise 3:
+
+[org 0x0100]
+
+mov cx,10
+mov bx,num1
+l1:
+mov ax,[bx]
+add bx,2
+mov dx,[bx]
+add ax,dx
+add bx,2
+mov [bx],ax
+sub bx,1
+sub cx,1
+jnz l1
+
+mov ax,0x4C00
+int 21h
+
+num1:dw 0,1,0,0,0,0,0,0,0,0,0,0,0
+
+Exercise: 4
+
+[org 0x0100]
+mov bx,num1
+mov ax,[bx]
+l1:
+
+ l2:
+ add bx,2
+ cmp ax,bx
+ je addcount
+ sub byte[size],1
+ cmp byte[size],0
+ ja l2
+ add ax,2
+
+ addcount: add byte[count],1
+mov ax,0x4C00
+int 21h
+num1: dw 1,1,2,1,1,-1
+size:db 7
+ count: db 0
+ outer:db 0
+

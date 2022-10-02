@@ -1,0 +1,73 @@
+Exercise 1:
+
+[org 0x0100]
+
+mov ax, [0x0100]
+
+mov [0x0FFF],ax
+
+mov cx, [0x0010]
+
+mov [0x002F],cx
+
+mov ax,0x4c00
+int 21h
+
+
+Exercise 2:
+
+[org 0x0100]
+
+mov ax,100
+mov bx,200
+mov [num],ax
+mov ax,bx
+mov bx,[num]
+
+mov ax,0x4c00
+int 21h
+
+num dw 0
+
+Exercise 3
+
+[org 0x0100]
+mov ax,[array1]
+mov bx,[array2]
+add ax,bx
+mov [array3],ax
+
+mov ax,[array1]
+mov bx,[array3]
+add ax,bx
+mov [array1+2],ax
+
+mov ax,[array3];
+mov bx,[array2];
+sub ax,bx
+mov [array2+2],ax 
+
+mov ax,[array1+2]
+mov bx,[array2+2]
+add ax,bx
+mov [array3+2],ax
+
+mov ax,[array1+2]
+mov bx,[array3+2]
+add ax,bx
+mov [array1+4],ax
+
+mov ax,[array3+2];
+mov bx,[array2+2];
+sub ax,bx
+mov [array2+4],ax
+
+mov ax,[array1+4]
+mov bx,[array2+4]
+add ax,bx
+mov [array3+4],ax
+mov ax,0x4c00
+int 21h
+array1: dw 0,0,0,0,0
+array2:dw 1,0,0,0,0
+array3:dw 0,0,0,0,0
