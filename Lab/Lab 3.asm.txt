@@ -1,4 +1,4 @@
-Exercise 1:
+
 
 [org 0x0100]
 mov ax,[num]
@@ -15,7 +15,6 @@ int 21h
 num: db 5
 square: db 0
 
-Exercise 2:
 
 [org 0x0100]
 
@@ -38,8 +37,6 @@ mov ax,0x4C00
 int 21h
 num1: dw 1,1,2,1,1,-1
 
-
-Exercise 3:
 
 [org 0x0100]
 
